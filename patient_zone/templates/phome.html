@@ -1,0 +1,51 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block body %}
+<div class="container text-center">
+    <div class="row mt-4">
+<div class="card" style="width: 15rem;">
+    <div class="card-body"> 
+      <h5 class="card-title">Dr. Rahul tripathi </h5>
+      <br>
+      <p class="card-text">Department: <strong>Cardiology</strong></p>
+      <br>
+      <p class="card-text">Contact: +91780001XXXX</p>
+
+    </div>
+    
+  </div>
+  <div class="card mx-4" style="width: 15rem;">
+    <div class="card-body">
+      <h5 class="card-title">Dr. Simran Awasthi</h5>
+      <p class="card-text">Department: <strong>Neuro Surgeon</strong></p><br>
+      <p class="card-text">Contact: +91 9984828044</p>
+    </div>
+  </div>
+  <div class="card mx-4" style="width: 15rem;">
+    <div class="card-body">
+      <h5 class="card-title">Dr. Ashwani Kumar Om</h5>
+      <p class="card-text">Department: <strong>ENT</strong></p><br/>
+      <p class="card-text">Contact: +91 8187947810</p>
+    </div>
+  </div>
+  <div class="card mx-4" style="width: 15rem;">
+    <div class="card-body">
+      <h5 class="card-title">Dr. Pooja Chauhan</h5>
+      <p class="card-text">Department: <strong>Plastic Surgeon</strong></p><br>
+      <p class="card-text">Contact: +91 8745963245</p>
+    </div>
+  </div>
+</div>
+<div class="container text-center mt-5">
+
+  <h2>Patient Details</h2>
+  {% for c in cust %}
+    <p>{{c.user.fname}}</p>
+    <p>{{c.user.lname}}</p>
+  {% endfor %}
+
+  <div>
+</div>
+</div>
+</div>
+{% endblock body %}

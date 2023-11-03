@@ -1,0 +1,39 @@
+{% extends 'adminparent.html' %}
+{% block body %}
+
+<div style="height:70px; width:100%;text-align:center;color:pink;font-size:40px;font-family:Copperplate Gothic Light;background-image:linear-gradient(green,black);">
+    Manage Patient
+</div>
+
+
+<table style="width:100%;margin:0 auto;" border="1">
+    <tr style="background-color:yellow;font-family:sans-serif;font-size:25px;">
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Contact No.</th>
+        <th>Email Address</th>
+        <th>Age</th>
+        <th>Height</th>
+        <th>Aadhar</th>
+        <th>uniqueID</th>
+        <th>Password</th>
+        <th>Delete</th>
+    </tr>
+    {% for e in user %}
+    <tr style="background-color:lightgreen;">
+        <td>{{e.fname}}</td>
+        <td>{{e.lname}}</td>
+        <td>{{e.contact}}</td>
+        <td>{{e.email}}</td>
+        <td>{{e.age}}</td>
+        <td>{{e.height}}</td>
+        <td>{{e.aadhar}}</td>
+        <td>{{e.uniqueID}}</td>
+        <td>{{e.password}}</td>
+        <td><a href="{% url 'adminzone:deletePat' eid=e.email %}">Delete</a></td>
+    </tr>
+    {% endfor %}
+
+</table>
+
+{% endblock body %}

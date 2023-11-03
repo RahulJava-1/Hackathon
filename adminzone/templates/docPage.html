@@ -1,0 +1,27 @@
+{% extends 'adminparent.html' %}
+{% block body %}
+<div class="container">
+    <h1 class="text-center">Manage Doctor</h1><center>
+    <a style="text-decoration: none;color: white;" class="text-center my-3" href="{% url 'adminzone:doctor' %}"><button class="btn btn-outline-success">Add Doctor</button></a>
+</center>
+    <table class="my-3" style="width:100%;margin:0 auto;" border="1">
+        <tr style="background-color:yellow;font-family:sans-serif;font-size:25px;">
+            <th>Name</th>
+            <th>Contact No.</th>
+            <th>Department</th>
+            <th>Doctor Id</th>
+            <th>Password</th>
+            <th>Delete</th>
+        </tr>
+        {% for e in doc %}
+        <tr style="background-color:lightgreen;">
+            <td>{{e.name}}</td>
+            <td>{{e.contact}}</td>
+            <td>{{e.department}}</td>
+            <td>{{e.docId}}</td>
+            <td>{{e.password}}</td>
+            <td><a href="{% url 'adminzone:deleteDoc' id=e.docId %}">Delete</a></td>
+        </tr>
+        {% endfor %}
+</div>
+{% endblock body %}

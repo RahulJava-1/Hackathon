@@ -1,0 +1,27 @@
+{% extends 'parent.html' %}
+{% block body %}
+<!-- Doctor Login form code start-->
+<div class="container mt-5 w-25 bg-dark" style=" border-radius: 10px; border:1px solid; height: 55vh ;width: 100%;">
+    <h2 class="text-center text-white">Doctor Login</h2>
+<form method="post" action="{% url 'vDoctor' %}">
+  {% csrf_token %}
+    <hr>
+    <p style="color:red; font-size: 25px;">{{msg}}</p>
+    <div class="form-floating">
+      <input type="text" class="form-control" id="floatingInput" name="docId" placeholder="Doctor Id" required>
+      <label for="floatingInput">Doctor Id</label>
+    </div>
+    <div class="form-floating my-3">
+      <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="Password" required>
+      <label for="floatingPassword">Password</label>
+    </div>
+    <div class="checkbox mb-3 my-2 text-white"> 
+      <label>
+        <input type="checkbox" value="remember-me"> Remember me
+      </label>
+    </div>
+    <button class="w-100 btn btn-lg btn-primary" type="submit" >Sign in</button>
+    </form>
+</div>
+<!-- Doctor Login form code end-->
+{% endblock body %}

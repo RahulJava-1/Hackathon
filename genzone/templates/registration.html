@@ -1,0 +1,77 @@
+{% extends 'parent.html' %}
+{% block body %}
+<!--Patient sign up form code start-->
+<div class="container my-5 w-50 bg-dark text-white" style=" border-radius: 10px; border:1px solid; height: 100vh auto;width: 100%;">
+    <h1 class="text-center my-2">Register Here</h1>
+    <form action="{% url 'regSignup' %}" class="row mt-5" method="post" >
+        {% csrf_token %}
+        <div class="col-md-6">
+          <input type="text" class="form-control" name="fname" placeholder="First name" aria-label="First name" required>
+        </div>
+        <div class="col-md-6">
+          <input type="text" class="form-control" name="lname" placeholder="Last name" aria-label="Last name" required>
+        </div>
+        <fieldset class="row mb-3 mt-3">
+            <legend class="col-form-label col-sm-2 pt-0">Gender</legend>
+            <div class="col-sm-10">
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="gender" id="gridRadios1" value="male" required>
+                <label class="form-check-label" for="gridRadios1">
+                  Male
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="gender" id="gridRadios2" value="female" required>
+                <label class="form-check-label" for="gridRadios2">
+                  Female
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="gender" id="gridRadios2" value="custom" required>
+                <label class="form-check-label" for="gridRadios2">
+                  Custom
+                </label>
+              </div>
+          </fieldset>
+      <div class="col-md-6 mt-3">
+        <input type="tel" class="form-control" name="contact" placeholder="Contact no" aria-label="Contact no." required>
+      </div>
+      <div class="col-md-6 mt-3">
+        <input type="email" class="form-control" name="email" placeholder="Email" aria-label="Email" required>
+      </div>
+      <div class="col-md-6 mt-3">
+        <input type="number" class="form-control" name="age" placeholder="Age" aria-label="Age" required>
+      </div>
+      <div class="col-md-6 mt-3">
+        <input type="text" class="form-control" name="height" placeholder="height(feet)" aria-label="height" required>
+      </div>
+      <div class="col-md-6 mt-3">
+        <input type="number" class="form-control" name="aadhar" placeholder="Aadhar number" aria-label="aadhar" required>
+      </div>
+      <div class="col-md-6 mt-3">
+        <input type="text" class="form-control" name="weight" placeholder="weight(kg)" aria-label="weight" required>
+      </div>
+        <div class="col-12 mt-3">
+          <label for="inputAddress" class="form-label">Address</label>
+          <textarea type="text" class="form-control" id="inputAddress" cols="10" rows="5" style="resize:none;" name="address"
+          placeholder="jankipuram extension" required> </textarea>
+        </div>
+        <div class="col-md-6 mt-3">
+          <input type="password" class="form-control" name="password" placeholder="Set Password (min 8 digit)" aria-label="password" required>
+        </div>
+        <p style="color:red; font-size: 20px;">{{msg}}</p>
+        <div class="col-12 mt-3">
+          <button type="submit" class="btn btn-primary" onclick="ran()">Sign in</button>&nbsp;&nbsp;&nbsp;
+          <button type="reset" class="btn btn-danger" onclick="ran()">Clear</button>
+        </div>
+        <p class="text-center my-2">If you've an account. <a href="{% url 'patientLogin' %}" style="text-decoration: none;">Sign in</a> Here.</p>
+      </form>
+</div>
+<!--Patient sign up form code end-->
+<script>
+  function ran(){
+    document.write ='{{uniqueID}}';
+    popup.classList.toggle("show");
+  }
+</script>
+{% endblock body %}
